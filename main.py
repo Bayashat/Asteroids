@@ -1,3 +1,5 @@
+import sys
+
 import pygame
 
 from asteroid import Asteroid
@@ -33,6 +35,9 @@ def main():
             obj.update(dt)
         for obj in drawable:
             obj.draw(screen)
+        for asteroid in asteroids:
+            if player.collides_with(asteroid):
+                return
         pygame.display.flip()
 
         # limit the frame rate to 60 FPS
